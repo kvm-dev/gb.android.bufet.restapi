@@ -20,4 +20,5 @@ class RestaurantController(
 
     @GetMapping("/{name}")
     fun getOne(@PathVariable("name") name : String): Restaurant = restaurantRepository.findByName(name)
+
 }
