@@ -1,6 +1,9 @@
 package gb.android.bufet.restapi.data
 
-import gb.android.bufet.restapi.domain.*
+import gb.android.bufet.restapi.domain.food.FoodRepository
+import gb.android.bufet.restapi.domain.global.RestaurantNoTable
+import gb.android.bufet.restapi.domain.restaurants.RestaurantRepository
+import gb.android.bufet.restapi.domain.tables.RestaurantTablesRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.web.bind.annotation.GetMapping
