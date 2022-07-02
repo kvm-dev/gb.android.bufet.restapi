@@ -10,7 +10,7 @@ data class Restaurant(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    val id: Int =0,
+    val id: Int = 0,
     @Column(name = "name")
     val name: String = "пустой",
     @Column(name = "description")
@@ -24,5 +24,5 @@ data class Restaurant(
     @Column(name = "work_start")
     val work_start: Date? = null,
     @Column(name = "work_end")
-    val work_end: Date? =null
+    val work_end: Date? = null
 )
