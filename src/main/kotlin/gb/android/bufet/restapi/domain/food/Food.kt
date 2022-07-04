@@ -16,5 +16,7 @@ data class Food(
     @Column(name = "pictures")
     val pictures: String? = "blanc",
     @Column(name = "price")
-    val price: String = "0"
+    val price: String = "0",
+    @Column(name = "restaurant_id")
+    val restaurantId: Int = 0
 )
