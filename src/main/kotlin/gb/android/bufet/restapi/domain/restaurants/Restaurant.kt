@@ -22,7 +22,7 @@ data class Restaurant(
     @Column(name = "tables")
     val tables: String? = null,
     @Column(name = "work_start")
-    val work_start: Date? = null,
+    val work_start: Long? = null,
     @Column(name = "work_end")
-    val work_end: Date? = null
+    val work_end: Long? = null
 )

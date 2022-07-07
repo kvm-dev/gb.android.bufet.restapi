@@ -1,7 +1,7 @@
 package gb.android.bufet.restapi.data
 
 import gb.android.bufet.restapi.domain.restaurants.food.FoodRepository
-import gb.android.bufet.restapi.domain.global.RestaurantNoTable
+import gb.android.bufet.restapi.domain.global.RestaurantFullQuery
 import gb.android.bufet.restapi.domain.restaurants.RestaurantRepository
 import gb.android.bufet.restapi.domain.restaurants.pictures.RestPicturesRepo
 import gb.android.bufet.restapi.domain.restaurants.tables.RestaurantTablesRepository
@@ -29,12 +29,12 @@ class RestaurantFullQueryController(
 
     @GetMapping
     @Operation(description = "get all")
-    fun allRest(): ArrayList<RestaurantNoTable?> {
+    fun allRest(): ArrayList<RestaurantFullQuery?> {
         val count: Int = restaurantRepository.count().toInt()
-        val rest = arrayListOf<RestaurantNoTable?>()
+        val rest = arrayListOf<RestaurantFullQuery?>()
         for (i in 0..count) {
 
-            var fullQueryRest = RestaurantNoTable()
+            var fullQueryRest = RestaurantFullQuery()
             val tmprest = restaurantRepository.findByIdOrNull(i)
             fullQueryRest.apply {
                 id = tmprest?.id
