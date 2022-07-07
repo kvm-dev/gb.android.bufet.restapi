@@ -2,7 +2,7 @@ package gb.android.bufet.restapi.data
 
 import gb.android.bufet.restapi.domain.restaurants.Restaurant
 import gb.android.bufet.restapi.domain.restaurants.RestaurantRepository
-import gb.android.bufet.restapi.domain.tables.RestaurantTablesRepository
+import gb.android.bufet.restapi.domain.restaurants.tables.RestaurantTablesRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.web.bind.annotation.GetMapping

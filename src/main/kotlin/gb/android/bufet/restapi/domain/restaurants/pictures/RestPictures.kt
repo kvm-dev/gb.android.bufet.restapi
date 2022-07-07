@@ -1,4 +1,4 @@
-package gb.android.bufet.restapi.domain.restaurants
+package gb.android.bufet.restapi.domain.restaurants.pictures
 
 import jakarta.persistence.*
 
@@ -10,7 +10,7 @@ data class RestPictures(
     @Column(name = "id")
     val id: Int = 0,
     @Column(name = "rest_id")
-    val restId: Int = 0,
+    val restaurantId: Int = 0,
     @Column(name = "image_path")
     val imagePath: String = "any",
 )

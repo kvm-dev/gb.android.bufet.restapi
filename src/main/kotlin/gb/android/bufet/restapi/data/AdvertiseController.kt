@@ -2,8 +2,6 @@ package gb.android.bufet.restapi.data
 
 import gb.android.bufet.restapi.domain.advertise.Advertise
 import gb.android.bufet.restapi.domain.advertise.AdvertiseRepository
-import gb.android.bufet.restapi.domain.food.Food
-import gb.android.bufet.restapi.domain.food.FoodRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping

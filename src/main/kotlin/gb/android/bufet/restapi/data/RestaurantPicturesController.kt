@@ -1,8 +1,7 @@
 package gb.android.bufet.restapi.data
 
-import gb.android.bufet.restapi.domain.restaurants.RestPictures
-import gb.android.bufet.restapi.domain.restaurants.RestPicturesRepo
-import gb.android.bufet.restapi.domain.tables.RestaurantTables
+import gb.android.bufet.restapi.domain.restaurants.pictures.RestPictures
+import gb.android.bufet.restapi.domain.restaurants.pictures.RestPicturesRepo
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -21,5 +20,5 @@ class RestaurantPicturesController(
     @GetMapping("/{restaurant_id}")
     fun allTablesInRestaurant(
         @PathVariable("restaurant_id") restaurantId: Int): List<RestPictures> =
-        restPictureRepo.findByRestId(restaurantId)
+        restPictureRepo.findByRestaurantId(restaurantId)
 }

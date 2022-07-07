@@ -1,4 +1,4 @@
-package gb.android.bufet.restapi.domain.tables
+package gb.android.bufet.restapi.domain.restaurants.tables
 
 import jakarta.persistence.*
 

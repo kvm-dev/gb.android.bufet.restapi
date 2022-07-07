@@ -1,9 +1,10 @@
 package gb.android.bufet.restapi.data
 
-import gb.android.bufet.restapi.domain.food.FoodRepository
+import gb.android.bufet.restapi.domain.restaurants.food.FoodRepository
 import gb.android.bufet.restapi.domain.global.RestaurantNoTable
 import gb.android.bufet.restapi.domain.restaurants.RestaurantRepository
-import gb.android.bufet.restapi.domain.tables.RestaurantTablesRepository
+import gb.android.bufet.restapi.domain.restaurants.pictures.RestPicturesRepo
+import gb.android.bufet.restapi.domain.restaurants.tables.RestaurantTablesRepository
 
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
@@ -18,12 +19,12 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("fullrest")
 
 @Tag(description = "get full restaurants list with tables", name = "main controller")
-class RestaurantNoTableController(
+class RestaurantFullQueryController(
     @Autowired(required = true)
-//    private val restaurantNoTableRepository: RestaurantNoTableRepository,
     private val restaurantRepository: RestaurantRepository,
     private val restaurantTablesRepository: RestaurantTablesRepository,
-    private val foodRepo: FoodRepository
+    private val foodRepo: FoodRepository,
+    private val picturesRepo: RestPicturesRepo
 ) {
 
     @GetMapping
@@ -32,13 +33,22 @@ class RestaurantNoTableController(
         val count: Int = restaurantRepository.count().toInt()
         val rest = arrayListOf<RestaurantNoTable?>()
         for (i in 0..count) {
-            rest.add(
-                RestaurantNoTable(
-                    i,
-                    restaurantRepository.findByIdOrNull(i),
-                    restaurantTablesRepository.findByRestaurantId(i)
-                )
-            )
+
+            var fullQueryRest = RestaurantNoTable()
+            val tmprest = restaurantRepository.findByIdOrNull(i)
+            fullQueryRest.apply {
+                id = tmprest?.id
+                name = tmprest?.name
+                description = tmprest?.description
+                type = tmprest?.type
+                headerImage = tmprest?.headerImage
+                work_start = tmprest?.work_start
+                work_end = tmprest?.work_end
+                fullQueryRest.restaurantTables = restaurantTablesRepository.findByRestaurantId(i)
+                fullQueryRest.restaurantPictures = picturesRepo.findByRestaurantId(i)
+                fullQueryRest.restaurantFood = foodRepo.findByRestaurantId(i)
+            }
+            rest.add(fullQueryRest)
         }
         return rest
     }
